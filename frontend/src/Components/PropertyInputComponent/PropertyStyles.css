@@ -1,0 +1,33 @@
+.searchcomponent{
+    display: flex;
+    margin-top: 10%;
+    margin-left: 12%;
+    padding: 5%;
+    width: 75%;
+    height: 35%;
+    position: relative;
+    background-color: white;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+}
+.submit{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    width:220px;
+    height: 59px;
+    color:#fff;
+    background: #2E3192;
+    border-radius: 50px;
+    font-size: 700;
+    cursor:pointer;
+  }
+
+  .pricerange{
+    display: flex;
+    margin: 2%;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
+  }
