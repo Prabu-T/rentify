@@ -5,10 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(to left,#1BFFFF,#2E3192);
+  /* background: linear-gradient(to left,#1BFFFF,#2E3192); */
   height:100vh;
 }
-
+.App{
+  background-color: #EEEEEE;
+  height: 225vh;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

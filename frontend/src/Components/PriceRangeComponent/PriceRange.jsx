@@ -20,11 +20,11 @@ function PriceRangeWithSuggestions() {
     <div>
       <Form>
         <Form.Group as={Row} controlId="priceRange">
-          <Form.Label column sm="2">Price</Form.Label>
+          <Form.Label column sm="2" style={{paddingTop:'35px'}}>Price</Form.Label>
           <Col sm="5">
             <Row>
               <Col>
-                <Form.Label>Min</Form.Label>
+                <Form.Label style={{paddingLeft:'23px'}}>Min</Form.Label>
                 <div className="position-relative">
                   <Form.Control
                     type="number"
@@ -48,7 +48,7 @@ function PriceRangeWithSuggestions() {
                 </div>
               </Col>
               <Col>
-                <Form.Label>Max</Form.Label>
+                <Form.Label style={{paddingLeft:'23px'}}>Max</Form.Label>
                 <div className="position-relative">
                   <Form.Control
                     type="number"

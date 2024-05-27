@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import SearchProperty from '../SearchComponent/SearchProperty';
 import './PropertyStyles.css';
 import axios from 'axios';
 import PriceRange from '../PriceRangeComponent/PriceRange';
 
-const PropertInput = () => {
+const PropertInput = ({ onPropertiesFetched }) => {
   const [options, setOptions] = useState([]);
   const [selectedAreas, setSelectedAreas] = useState([]);
   const [selectedPropertyTypes, setSelectedPropertyTypes] = useState([]);
   const [selectedFlatTypes, setSelectedFlatTypes] = useState([]);
   const [ptype, setTypes] = useState([]);
   const [ftype, setFTypes] = useState([]);
+
   const getAreas = () => {
     axios.get('http://localhost:8800/area')
       .then(response => {
@@ -44,6 +45,7 @@ const PropertInput = () => {
 
     setFTypes(Ftypes.map(item => item.type));
   };
+
   const handleSelectedAreas = (selected) => {
     setSelectedAreas(selected);
   };
@@ -55,23 +57,18 @@ const PropertInput = () => {
   const handleSelectedFlatTypes = (selected) => {
     setSelectedFlatTypes(selected);
   };
-  const handleOnSearchClick=async ()=>{
+
+  const handleOnSearchClick = async () => {
     try {
-        
-        const url = `http://localhost:8800/searchproperties/${selectedAreas}/${selectedPropertyTypes}/${selectedFlatTypes}`;
-    
-       
-        const response = await axios.get(url);
-    
-        console.log('Fetched data:', response.data);
-        return response.data; 
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        throw error; 
-      }
-    };
-    
-  
+      const url = `http://localhost:8800/searchproperties/${selectedAreas}/${selectedPropertyTypes}/${selectedFlatTypes}`;
+      const response = await axios.get(url);
+      console.log('Fetched data:', response.data);
+      onPropertiesFetched(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }} className="searchcomponent">
       <div style={{ display: 'flex' }}>
@@ -79,16 +76,14 @@ const PropertInput = () => {
         <SearchProperty apiCall={getPropertyType} options={ptype} placeholderText="BHK" setSelectedOptions={handleSelectedPropertyTypes} />
         <SearchProperty apiCall={getFlatType} options={ftype} placeholderText="Property type" setSelectedOptions={handleSelectedFlatTypes} />
       </div>
-      <div className="pricerange">
+      <div className="pricerange" style={{marginLeft:'200px'}}>
         <PriceRange />
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column' }} className="submit" onClick={handleOnSearchClick}>
+        <div style={{ display: 'flex', flexDirection: 'column' }} className="submit" onClick={handleOnSearchClick}>
         Search
       </div>
-      <p>Selected Areas: {selectedAreas.join(', ')}</p>
-      <p>Selected Property Types: {selectedPropertyTypes.join(', ')}</p>
-      <p>Selected Flat Types: {selectedFlatTypes.join(', ')}</p>
-    </div>
+      </div>
+    
   );
 };
 

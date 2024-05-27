@@ -1,20 +1,22 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import React from 'react';
+import './CardStyles.css';
 
-function BasicExample() {
+const PropertyCard = ({ property }) => {
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+    <div className="property-card">
+      <img src={property.image_url} alt={property.title} className="property-card-img" />
+      <div className="property-card-details">
+        <h3>{property.title}</h3>
+        <p><strong>Sqft:</strong> {property.sqft}</p>
+        <p><strong>Area:</strong> {property.area}</p>
+        <p><strong>Location:</strong> {property.city}</p>
+        <p><strong>Property Type:</strong> {property.property_type}</p>
+        <p><strong>Rent:</strong> {property.rent}</p>
+        <p><strong>Deposit:</strong> {property.deposit}</p>
+        <p><strong>Amenities:</strong> {property.amenity1}, {property.amenity2}, {property.amenity3}, {property.amenity4}</p>
+      </div>
+    </div>
   );
-}
+};
 
-export default BasicExample;
+export default PropertyCard;
