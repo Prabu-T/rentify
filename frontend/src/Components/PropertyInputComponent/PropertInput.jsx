@@ -12,8 +12,8 @@ const PropertInput = ({ onPropertiesFetched }) => {
   const [ptype, setTypes] = useState([]);
   const [ftype, setFTypes] = useState([]);
 
-  const getAreas = () => {
-    axios.get('http://localhost:8800/area')
+  const getAreas =async () => {
+   await  axios.get('http://localhost:8800/area')
       .then(response => {
         const areas = response.data.map(item => item.area);
         setOptions(areas);
@@ -64,8 +64,8 @@ const PropertInput = ({ onPropertiesFetched }) => {
       const response = await axios.get(url);
       console.log('Fetched data:', response.data);
       onPropertiesFetched(response.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
+    } catch (err) {
+      console.error('Error fetching data:', err);
     }
   };
 

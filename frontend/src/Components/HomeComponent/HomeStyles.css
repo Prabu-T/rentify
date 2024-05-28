@@ -4,3 +4,6 @@
   flex-direction: column;
   align-items: center;
 }
+.App{
+  background: linear-gradient(to left,#1BFFFF,#2E3192);
+}
