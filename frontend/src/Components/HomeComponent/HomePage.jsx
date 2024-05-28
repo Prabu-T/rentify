@@ -13,7 +13,7 @@ function HomePage() {
   };
 
   return (
-    <div className="App">
+    <div className="app">
       <NavBar />
       <PropertInput onPropertiesFetched={handlePropertiesFetched} />
       <div className="property-cards-container">

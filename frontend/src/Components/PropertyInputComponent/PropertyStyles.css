@@ -1,7 +1,7 @@
 .searchcomponent{
     display: flex;
     margin-top: 3%;
-    margin-left: 12%;
+    margin-left: 12.5%;
     padding: 5%;
     width: 75%;
     height: 35%;
@@ -41,4 +41,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .head h1{
+    font-family: "Dancing Script", cursive;
+    font-size: 4rem;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    color: #2E3192;
+    padding-bottom: 5%;
+  }
+
+  .inputfield img{
+    height: 25px;
+    width:25px;
+    margin: 5px 5px 0 0;
+  }
+  .inputfield{
+    display: flex;
+    padding: 0 5px 0 5px;
   }

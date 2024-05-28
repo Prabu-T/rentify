@@ -5,12 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(to left,#1BFFFF,#2E3192);
-  height:100vh;
+  background-color: #EEEEEE;
+ height: auto;
 }
 .App{
   background-color: #EEEEEE;
-  height: 225vh;
+  height: 150vh;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

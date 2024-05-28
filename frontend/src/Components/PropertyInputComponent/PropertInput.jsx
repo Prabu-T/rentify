@@ -7,12 +7,15 @@ import house2 from './house-2.png'
 import house3 from './house-3.jpg'
 import house4 from './house-4.jpg'
 import house5 from './house-5.jpg'
+import placeholder from './placeholder.png'
+import bed from './bed.png'
+import flat from './flat.png'
 const PropertInput = ({ onPropertiesFetched }) => {
   const [selectedAreas, setSelectedAreas] = useState([]);
   const [selectedPropertyTypes, setSelectedPropertyTypes] = useState([]);
   const [selectedFlatTypes, setSelectedFlatTypes] = useState([]);
 
-  // Hardcoded data
+  
   const areas = ["Adyar", "Anna Nagar", "Velachery", "T Nagar", "Mylapore"];
   const ptype = ["1 BHK", "2 BHK", "3 BHK", "4 BHK", "5+ BHK"];
   const ftype = ["House", "Villa", "PG", "Apartment"];
@@ -30,7 +33,7 @@ const PropertInput = ({ onPropertiesFetched }) => {
   };
 
   const handleOnSearchClick = () => {
-    // Hardcoded properties
+    
     const properties = [
       {
         id: 1,
@@ -50,9 +53,9 @@ const PropertInput = ({ onPropertiesFetched }) => {
       {
         id: 2,
         image_url: house2,
-        title: 'Luxurious 4 BHK Villa in Anna Nagar',
+        title: 'Luxurious 4 BHK Villa in Tambaram',
         sqft: '3000',
-        area: 'Anna Nagar',
+        area: 'Tambaram',
         city: 'Chennai',
         property_type: 'Villa',
         rent: '70000',
@@ -65,7 +68,7 @@ const PropertInput = ({ onPropertiesFetched }) => {
       {
         id: 3,
         image_url: house3,
-        title: 'Luxurious 3 BHK Villa in Anna Nagar',
+        title: 'Luxurious 3 BHK Villa in Velachery',
         sqft: '3000',
         area: 'Velachery',
         city: 'Chennai',
@@ -80,7 +83,7 @@ const PropertInput = ({ onPropertiesFetched }) => {
       {
         id: 4,
         image_url: house4,
-        title: 'Luxurious 1 BHK Villa in Anna Nagar',
+        title: 'Luxurious 1 BHK Villa in T Nagar',
         sqft: '3000',
         area: 'T Nagar',
         city: 'Chennai',
@@ -95,7 +98,7 @@ const PropertInput = ({ onPropertiesFetched }) => {
       {
         id: 5,
         image_url: house5,
-        title: 'Luxurious 2 BHK Villa in Anna Nagar',
+        title: 'Luxurious 2 BHK Villa in Mylapore',
         sqft: '3000',
         area: 'Mylapore',
         city: 'Chennai',
@@ -107,7 +110,7 @@ const PropertInput = ({ onPropertiesFetched }) => {
         amenity3: 'Parking',
         amenity4: 'Garden'
       }
-      // Add more hardcoded properties as needed
+     
     ];
 
     onPropertiesFetched(properties);
@@ -115,10 +118,20 @@ const PropertInput = ({ onPropertiesFetched }) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }} className="searchcomponent">
+      <div className="head"><h1>Home is where the heart is !</h1></div>
       <div style={{ display: 'flex' }}>
-        <SearchProperty apiCall={() => {}} options={areas} placeholderText="City" setSelectedOptions={handleSelectedAreas} />
-        <SearchProperty apiCall={() => {}} options={ptype} placeholderText="BHK" setSelectedOptions={handleSelectedPropertyTypes} />
+        <div className="inputfield">
+            <img src={placeholder} alt="" />
+            <SearchProperty apiCall={() => {}} options={areas} placeholderText="City" setSelectedOptions={handleSelectedAreas} />  
+        </div>
+        <div className="inputfield">
+            <img src={bed} alt="" />
+            <SearchProperty apiCall={() => {}} options={ptype} placeholderText="BHK" setSelectedOptions={handleSelectedPropertyTypes} />
+        </div>
+        <div className="inputfield">
+        <img src={flat} alt="" />
         <SearchProperty apiCall={() => {}} options={ftype} placeholderText="Property type" setSelectedOptions={handleSelectedFlatTypes} />
+        </div>
       </div>
       <div className="pricerange" style={{marginLeft:'200px'}}>
         <PriceRange />
